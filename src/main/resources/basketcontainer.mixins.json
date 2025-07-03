@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "gungun974.basketcontainer.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "TileEntityBasketMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

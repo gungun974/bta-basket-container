@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "basketcontainer",
+  "version": "${version}",
+
+  "name": "BasketContainer Mod",
+  "description": "This mod add an interface for other mods to interact with basket inventory.",
+  "authors": [
+    "Gungun974"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+	"icon": "icon.png",
+  "license": "CC0-1.0",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+			"gungun974.basketcontainer.BasketContainerMod"
+    ]
+	},
+  "mixins": [
+		"basketcontainer.mixins.json"
+  ],
+
+  "depends": {
+		"minecraft": "*",
+    "fabricloader": ">=0.15.5"
+  },
+  "suggests": {
+  }
+}

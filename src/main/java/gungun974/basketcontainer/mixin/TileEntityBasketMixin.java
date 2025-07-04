@@ -56,7 +56,7 @@ public abstract class TileEntityBasketMixin implements Container {
 				return null;
 			}
 
-			return new ItemStack(7, 0, 254);
+			return new ItemStack(260, 0, 254);
 		}
 
 		List<Map.Entry<TileEntityBasket.BasketEntry, Integer>> list = new ArrayList<>(this.contents.entrySet());

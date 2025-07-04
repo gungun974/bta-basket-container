@@ -1,6 +1,5 @@
 package gungun974.basketcontainer.mixin;
 
-import gungun974.basketcontainer.BasketContainerMod;
 import net.minecraft.core.block.entity.TileEntityBasket;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.Item;
@@ -34,6 +33,9 @@ public abstract class TileEntityBasketMixin implements Container {
 	@Shadow
 	private int numUnitsInside;
 
+	@Shadow
+	protected abstract int calcNumUnitsInside();
+
 	@Override
 	public int getContainerSize() {
 		return getMaxUnits();
@@ -50,8 +52,22 @@ public abstract class TileEntityBasketMixin implements Container {
 
 	@Override
 	public @Nullable ItemStack getItem(int i) {
+		int numInsideToBlock = 0;
+
+		for(Map.Entry<TileEntityBasket.BasketEntry, Integer> entry : this.contents.entrySet()) {
+			TileEntityBasket.BasketEntry be = entry.getKey();
+			int numItems = entry.getValue();
+			int unitsPerItem = this.getItemSizeUnits(be.getItem()) - 1;
+			numInsideToBlock += unitsPerItem * numItems;
+		}
+
 		if (i >= getCurrentSize()) {
+			if (i >= getContainerSize() - numInsideToBlock) {
+				return new ItemStack(260, 0, 254);
+			}
+
 			int freeUnits = this.getMaxUnits() - this.numUnitsInside;
+
 			if (freeUnits > 0) {
 				return null;
 			}

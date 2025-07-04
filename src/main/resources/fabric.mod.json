@@ -26,6 +26,8 @@
 		"basketcontainer.mixins.json"
   ],
 
+	"accessWidener": "basketcontainer.accesswidener",
+
   "depends": {
 		"minecraft": "*",
     "fabricloader": ">=0.15.5"
